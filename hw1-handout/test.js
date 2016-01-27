@@ -32,27 +32,35 @@ var easingsList = [
 ];
 
 var moveRight = function(){
+  var n = 0;
+  var e = easingsList[n];
+  var d = $("#delay").val();
+  moveBoxRight(n, e, d);
+
+  var n = 1;
+  var e = easingsList[n];
+  var d = $("#delay").val();
+  moveBoxRight(n, e, d);
+
+
+
 }
 
 var moveLeft = function(){
 }
 
-var moveBoxRight= function(n, easing, endcolor, duration)
+var moveBoxRight= function(n, easing, duration)
 {
   var id = "#button" + n.toString();
   var pageWidth = $("body").width();
   var boxWidth = 150;
-  $(id).animate({"margin-left":pageWidth-boxWidth + "px", "color":endcolor}, duration, easing); 
+  $(id).animate({"margin-left":pageWidth-boxWidth + "px"}, duration, easing); 
 }
-var moveBoxLeft= function(n, easing, endcolor, duration)
+
+var moveBoxLeft= function(n, easing, duration)
 {
   var id = "#button" + n.toString();
   var pageWidth = $("body").width();
   var boxWidth = 150;
-  if(boxStatus[n] == "left"){
-    $(id).animate({"margin-left" : pageWidth - boxWidth + "px", "color": endcolor}, duration, easing); 
-  }
-  else{
-    $(id).animate({"margin-left" : "0px", "color" : endColor}, duraion, easing); 
-  }
+  $(id).animate({"margin-left" : "0px"}, duration, easing); 
 }
