@@ -34,12 +34,12 @@ var easingsList = [
 var moveRight = function(){
   var n = 0;
   var e = easingsList[n];
-  var d = $("#delay").val();
+  var d = parseInt($("#delay").val());
   moveBoxRight(n, e, d);
 
   var n = 1;
   var e = easingsList[n];
-  var d = $("#delay").val();
+  var d = parseInt($("#delay").val());
   moveBoxRight(n, e, d);
 
 
