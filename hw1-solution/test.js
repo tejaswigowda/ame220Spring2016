@@ -50,11 +50,39 @@ var moveLeft = function(){
 }
 
 var hideBoxes = function(){
-  $(".button").fadeOut();
+  var selection = parseInt($("#jqoption").val())
+  if(selection == 0){
+    $(".button").fadeOut();
+  }
+  else if(selection == 1){
+    $(".button").fadeToggle();
+  }
+  else if(selection == 2){
+    $(".button").slideToggle();
+  }
+  else if(selection == 3){
+    $(".button").toggle();
+  }
+  else if(selection == 4){
+    $(".button").slideUp();
+  }
+  else if(selection == 5){
+    $(".button").hide();
+  }
+  else{
+    $(".button").animate({opacity:0});
+  }
+
 }
 
 var showBoxes = function(){
-  $(".button").fadeIn();
+  //$(".button").fadeIn();
+  //$(".button").fadeToggle();
+  //$(".button").slideToggle();
+  //$(".button").toggle();
+  //$(".button").slideDown();
+  //$(".button").show();
+  $(".button").animate({opacity:1});
 }
 
 var moveBoxRight= function(n, easing, duration)
