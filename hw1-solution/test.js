@@ -76,13 +76,28 @@ var hideBoxes = function(){
 }
 
 var showBoxes = function(){
-  //$(".button").fadeIn();
-  //$(".button").fadeToggle();
-  //$(".button").slideToggle();
-  //$(".button").toggle();
-  //$(".button").slideDown();
-  //$(".button").show();
-  $(".button").animate({opacity:1});
+  var selection = parseInt($("#jqoption").val())
+  if(selection == 0){
+    $(".button").fadeIn();
+  }
+  if(selection == 1){
+    $(".button").fadeToggle();
+  }
+  if(selection == 2){
+    $(".button").slideToggle();
+  }
+  if(selection == 3){
+    $(".button").toggle();
+  }
+  if(selection == 4){
+    $(".button").slideDown();
+  }
+  if(selection == 5){
+    $(".button").show();
+  }
+  if(selection == 6){
+    $(".button").animate({opacity:1});
+  }
 }
 
 var moveBoxRight= function(n, easing, duration)
@@ -99,4 +114,18 @@ var moveBoxLeft= function(n, easing, duration)
   var pageWidth = $("body").width();
   var boxWidth = 150;
   $(id).animate({"margin-left" : "0px"}, duration, easing); 
+}
+
+
+var toggleBoxes = function()
+{
+  var selection = $("#hideShowButton").html();
+  if(selection == "Hide Boxes"){
+    hideBoxes();
+    $("#hideShowButton").html("Show Boxes");
+  }
+  else{
+    showBoxes();
+    $("#hideShowButton").html("Hide Boxes");
+  }
 }
