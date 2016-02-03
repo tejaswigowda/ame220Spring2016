@@ -129,3 +129,12 @@ var toggleBoxes = function()
     $("#hideShowButton").html("Hide Boxes");
   }
 }
+
+var init = function()
+{
+    $(".button").each(doSomething);
+}
+
+var doSomething = function(index){
+  console.log(index);
+}
