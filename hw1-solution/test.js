@@ -52,25 +52,25 @@ var moveLeft = function(){
 var hideBoxes = function(){
   var selection = parseInt($("#jqoption").val())
   if(selection == 0){
-    $(".button").fadeOut();
+    $(".button").stop().fadeOut();
   }
   else if(selection == 1){
-    $(".button").fadeToggle();
+    $(".button").stop().fadeToggle();
   }
   else if(selection == 2){
-    $(".button").slideToggle();
+    $(".button").stop().slideToggle();
   }
   else if(selection == 3){
-    $(".button").toggle();
+    $(".button").stop().toggle();
   }
   else if(selection == 4){
-    $(".button").slideUp();
+    $(".button").stop().slideUp();
   }
   else if(selection == 5){
-    $(".button").hide();
+    $(".button").stop().hide();
   }
   else{
-    $(".button").animate({opacity:0});
+    $(".button").stop().animate({opacity:0});
   }
 
 }
@@ -78,25 +78,25 @@ var hideBoxes = function(){
 var showBoxes = function(){
   var selection = parseInt($("#jqoption").val())
   if(selection == 0){
-    $(".button").fadeIn();
+    $(".button").stop().fadeIn();
   }
   if(selection == 1){
-    $(".button").fadeToggle();
+    $(".button").stop().fadeToggle();
   }
   if(selection == 2){
-    $(".button").slideToggle();
+    $(".button").stop().slideToggle();
   }
   if(selection == 3){
-    $(".button").toggle();
+    $(".button").stop().toggle();
   }
   if(selection == 4){
-    $(".button").slideDown();
+    $(".button").stop().slideDown();
   }
   if(selection == 5){
-    $(".button").show();
+    $(".button").stop().show();
   }
   if(selection == 6){
-    $(".button").animate({opacity:1});
+    $(".button").stop().animate({opacity:1});
   }
 }
 
@@ -136,5 +136,20 @@ var init = function()
 }
 
 var doSomething = function(index){
-  console.log(index);
+  $("#button" + index).html(easingsList[index]);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
