@@ -348,10 +348,10 @@ var hideBoxes = function(){
   else if(selection == 6){
     $(".button").stop().animate({opacity:0});
   }
-
+ // selChanged();
 }
 
-var showBoxes = function(){
+var showBoxes = function(flag){
   var selection = parseInt($("#jqoption").val())
   if(selection == 0){
     $(".button").stop().fadeIn();
@@ -374,20 +374,31 @@ var showBoxes = function(){
   if(selection == 6){
     $(".button").stop().animate({opacity:1});
   }
+  if(flag) return;
+  selChanged();
 }
 
 var selChanged = function(){
   var selection = parseInt($("#iscss").val())
   if(selection == 1){
-    $("#endColor").show();
-    $(".button").hide();
-    $(".cssonly").stop().show();
+    showBoxes(true);
+    $("#hideShowButton").html("Hide Boxes");
+    setTimeout(selChanged_Aux, 1000)
   }
   else{
     $("#endColor").hide();
     $(".button").show();
     $(".cssonly").stop().hide();
+    $("#hideShowButton,#jqoption").show();
   }
+}
+
+var selChanged_Aux = function()
+{
+    $("#endColor").show();
+    $(".button").hide();
+    $(".cssonly").stop().show();
+    $("#hideShowButton,#jqoption").hide();
 }
 
 var moveBoxRight= function(n, easing, duration)
