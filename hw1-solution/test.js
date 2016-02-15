@@ -1,4 +1,9 @@
 var easingsList = [
+  "ease",
+  "linear",
+  "ease-in",
+  "ease-out",
+  "ease-in-out",
 "swing",
 "easeInQuad",
 "easeOutQuad",
@@ -28,7 +33,7 @@ var easingsList = [
 "easeOutBack",
 "easeInOutBack",
 "easeInBounce",
-"easeOutBounce"
+"easeOutBounce" 
 ];
 
 var moveRight = function(){
@@ -151,6 +156,26 @@ var moveRight = function(){
   moveBoxRight(n, e, d);
 
   var n = 29;
+  var e = easingsList[n];
+  moveBoxRight(n, e, d);
+
+  var n = 30;
+  var e = easingsList[n];
+  moveBoxRight(n, e, d);
+
+  var n = 31;
+  var e = easingsList[n];
+  moveBoxRight(n, e, d);
+
+  var n = 32;
+  var e = easingsList[n];
+  moveBoxRight(n, e, d);
+
+  var n = 33;
+  var e = easingsList[n];
+  moveBoxRight(n, e, d);
+
+  var n = 34;
   var e = easingsList[n];
   moveBoxRight(n, e, d);
 
@@ -278,6 +303,26 @@ var moveLeft = function(){
   var n = 29;
   var e = easingsList[n];
   moveBoxLeft(n, e, d);
+
+  var n = 30;
+  var e = easingsList[n];
+  moveBoxLeft(n, e, d);
+
+  var n = 31;
+  var e = easingsList[n];
+  moveBoxLeft(n, e, d);
+
+  var n = 32;
+  var e = easingsList[n];
+  moveBoxLeft(n, e, d);
+
+  var n = 33;
+  var e = easingsList[n];
+  moveBoxLeft(n, e, d);
+
+  var n = 34;
+  var e = easingsList[n];
+  moveBoxLeft(n, e, d);
 }
 
 var hideBoxes = function(){
@@ -335,35 +380,49 @@ var selChanged = function(){
   var selection = parseInt($("#iscss").val())
   if(selection == 1){
     $("#endColor").show();
+    $(".button").hide();
+    $(".cssonly").stop().show();
   }
   else{
     $("#endColor").hide();
+    $(".button").show();
+    $(".cssonly").stop().hide();
   }
 }
 
-var moveBoxRight= function(n, easing, duration, jq)
+var moveBoxRight= function(n, easing, duration)
 {
+  var jq = $("#iscss").val() == "0";
+  var id = "#button" + n.toString();
+  var ec = $("#endColor").val();
+  var pageWidth = $("body").width();
+  var boxWidth = 150;
   if(jq){
-    var id = "#button" + n.toString();
-    var pageWidth = $("body").width();
-    var boxWidth = 150;
+    if(n < 5) return;
     $(id).animate({"margin-left":pageWidth-boxWidth + "px"}, duration, easing); 
   }
   else{
+    if(n >= 5) return;
     // add css transition code here;
+    console.log("Write this code");
   }
 }
 
-var moveBoxLeft= function(n, easing, duration, jq)
+var moveBoxLeft= function(n, easing, duration)
 {
+  var jq = $("#iscss").val() == "0";
+  var ec = $("#endColor").val();
+  var id = "#button" + n.toString();
+  var pageWidth = $("body").width();
+  var boxWidth = 150;
   if(jq){
-    var id = "#button" + n.toString();
-    var pageWidth = $("body").width();
-    var boxWidth = 150;
+    if(n < 5) return;
     $(id).animate({"margin-left" : "0px"}, duration, easing); 
   }
   else{
+    if(n >= 5) return;
     // add css transition code here;
+    console.log("Write this code");
   }
 }
 
