@@ -34,7 +34,7 @@
   <input placeholder='delay in ms; 100, 500 etc.'  id='delay'>
   <input placeholder='end color; rgb(0,0,0), #000000, rgba(0,0,0,1)  etc.'  id='endColor'>
 
-  <select onchange='selChanged()' id='jqoption'>
+  <select id='jqoption'>
     <option value='0'> fadeIn-fadeOut </option>
     <option value='1'> toggle</option>
     <option value='2'> slideToggle</option>
@@ -49,6 +49,10 @@
 
   <a href='javascript:toggleBoxes()' class='link'  id='hideShowButton'>Hide Boxes</a>
   <br>
+  <select onchange='selChanged()' id='iscss'>
+    <option value='0'> Use jQuery </option>
+    <option value='1'> Use CSS transitions </option>
+  </select>
   <a href='javascript:moveLeft()' class='link'  id=''> Move Left </a>
   <a href='javascript:moveRight()' class='link' style='float:right' id=''> Move Right </a>
 

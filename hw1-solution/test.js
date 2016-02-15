@@ -303,9 +303,6 @@ var hideBoxes = function(){
   else if(selection == 6){
     $(".button").stop().animate({opacity:0});
   }
-  else{
-    //Add code for CSS Transform. This time you can animate the colors as well.
-  }
 
 }
 
@@ -332,14 +329,11 @@ var showBoxes = function(){
   if(selection == 6){
     $(".button").stop().animate({opacity:1});
   }
-  else{
-    //Add code for CSS Transform. This time you can animate the colors as well.
-  }
 }
 
 var selChanged = function(){
-  var selection = parseInt($("#jqoption").val())
-  if(selection == 7){
+  var selection = parseInt($("#iscss").val())
+  if(selection == 1){
     $("#endColor").show();
   }
   else{
@@ -347,20 +341,30 @@ var selChanged = function(){
   }
 }
 
-var moveBoxRight= function(n, easing, duration)
+var moveBoxRight= function(n, easing, duration, jq)
 {
-  var id = "#button" + n.toString();
-  var pageWidth = $("body").width();
-  var boxWidth = 150;
-  $(id).animate({"margin-left":pageWidth-boxWidth + "px"}, duration, easing); 
+  if(jq){
+    var id = "#button" + n.toString();
+    var pageWidth = $("body").width();
+    var boxWidth = 150;
+    $(id).animate({"margin-left":pageWidth-boxWidth + "px"}, duration, easing); 
+  }
+  else{
+    // add css transition code here;
+  }
 }
 
-var moveBoxLeft= function(n, easing, duration)
+var moveBoxLeft= function(n, easing, duration, jq)
 {
-  var id = "#button" + n.toString();
-  var pageWidth = $("body").width();
-  var boxWidth = 150;
-  $(id).animate({"margin-left" : "0px"}, duration, easing); 
+  if(jq){
+    var id = "#button" + n.toString();
+    var pageWidth = $("body").width();
+    var boxWidth = 150;
+    $(id).animate({"margin-left" : "0px"}, duration, easing); 
+  }
+  else{
+    // add css transition code here;
+  }
 }
 
 
