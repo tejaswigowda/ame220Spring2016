@@ -32,9 +32,9 @@
   <h1> jQuery Animate Easing Examples </h1>
 
   <input placeholder='delay in ms; 100, 500 etc.'  id='delay'>
-  <!--  <input placeholder='end color; rgb(0,0,0), #000000, rgba(0,0,0,1)  etc.'  id='endColor'> -->
+  <input placeholder='end color; rgb(0,0,0), #000000, rgba(0,0,0,1)  etc.'  id='endColor'>
 
-  <select id='jqoption'>
+  <select onchange='selChanged()' id='jqoption'>
     <option value='0'> fadeIn-fadeOut </option>
     <option value='1'> toggle</option>
     <option value='2'> slideToggle</option>
@@ -42,6 +42,7 @@
     <option value='4'> slideUp-slideDown</option>
     <option value='5'> hide-show</option>
     <option value='6'> animate opacity</option>
+    <option value='7'> CSS transitions </option>
   </select>
 
 
@@ -81,7 +82,6 @@
   <div class='button' id='button27'> </div>
   <div class='button' id='button28'> </div>
   <div class='button' id='button29'> </div>
-  <div class='button' id='button30'> </div>
   
   
   </div>
