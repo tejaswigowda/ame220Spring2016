@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Word Cloud </title>
+  <script src='script.js'> </script>
+  <script>
+    var getCloudMU = function(data)
+    {
+      var result = "";
+      //write code here
+      result = data;
+      return result;
+    }
+    var getCloud = function()
+    {
+      var userInput = document.getElementById("choice").value;
+      var url = "./" + userInput;
+      var callback = function(data){
+        var res = data;
+        document.getElementById("result").innerHTML = getCloudMU(data);
+      }
+      loadURL(url, callback);
+    }
+  </script>
+  <style>
+  .cloud{
+      text-align: center;
+  }
+  </style>
+</head>
+
+<body onload='getCloud()'> 
+  <select id='choice' onchange='getCloud()'>
+    <option value='dream.txt'> I have a dream </option>
+    <option value='sense.txt'> Common Sense</option>
+  </select>
+  <div id='result' class='cloud'> </div>
+</body>
+</html>
