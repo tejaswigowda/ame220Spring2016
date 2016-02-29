@@ -13,15 +13,20 @@
       //write code here
         allWords = data.match(/\b\w+\b/g);   //get all words in the document
  
-      /*
         for(var i = 0; i < allWords.length; i = i + 1){
           allWords[i] = allWords[i].toLowerCase();
-          var num = allWords[i];
-          if(num.length>5){
-            wordCount[num] = wordCount[num] ? wordCount[num]+1 : 1;
+          var word = allWords[i];
+          if(word.length>5){
+            if(wordCount[word]){
+              wordCount[word] = wordCount[word]+1;
+            }
+            else{
+              wordCount[word] = 1;
+            }
           }
         }
 
+      /*
      var theWords = Object.keys(wordCount); // all words over 5 characters 
       */
       result = data;
