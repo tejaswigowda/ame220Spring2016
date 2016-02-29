@@ -26,10 +26,12 @@
           }
         }
 
-      /*
      var theWords = Object.keys(wordCount); // all words over 5 characters 
-      */
-      result = data;
+     var result = "";
+
+      for(var i = 0; i < theWords.length; i = i + 1){
+          result = result + " " + theWords[i];
+      }
       return result;
     }
     var getCloud = function()
