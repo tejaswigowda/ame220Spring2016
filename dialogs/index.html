@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <script src="jquery-1.11.3.js" type="text/javascript"></script>
+  <script>
+  var dialogAlert = {
+    show:function(msg){
+      var mu = "";
+       mu += "<div class='fadingBox'>"
+         mu += "<div class='message'>" + msg + "</div>";
+         mu += "";
+         mu += "<div class='dialogBox'>"
+         mu += "</div>";
+       mu += "</div>";
+
+    },
+    hide: function(){
+
+    },
+    id: null
+  }
+
+
+  var openAlert = function(){
+   dialogAlert.show("Dialog Alert is working!"); 
+  }
+  </script>
+  <style>
+
+  </style>
+</head>
+<body>
+<a href='javascript:openAlert()'> Alert </a>
+<a href='javascript:openConfirm()'> Confirm </a>
+<a href='javascript:openPrompt()'> Prompt </a>
+</body>
+</html>
+
