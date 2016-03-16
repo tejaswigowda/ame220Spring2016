@@ -8,11 +8,12 @@
       var mu = "";
        mu += "<div class='fadingBox'>"
          mu += "<div class='message'>" + msg + "</div>";
-         mu += "";
+         mu += "<a href='javascript:dialogAlert.hide()' class='okButton'> OK </a>";
          mu += "<div class='dialogBox'>"
          mu += "</div>";
        mu += "</div>";
-
+       document.body.innerHTML = mu;
+       return;
     },
     hide: function(){
 
