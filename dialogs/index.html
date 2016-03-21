@@ -31,7 +31,9 @@
       dialogConfirm.value = false;
       dialogConfirm.hide();
     },
-    show:function(msg){
+    callback: null,
+    show:function(msg, cb){
+      dialogConfirm.callback = cb;
       var mu = "";
        mu += "<div class='fadingBox'>"
          mu += "<div class='dialogBox'>"
@@ -44,7 +46,8 @@
     },
     hide: function(){
       $(".fadingBox").remove();
-      alert(dialogConfirm.value);
+      // do after user input
+      dialogConfirm.callback();
     },
     id: null
   }
@@ -84,7 +87,7 @@
    dialogAlert.show("Dialog Alert is working!"); 
   } 
   var openConfirm= function(){
-   dialogConfirm.show("Dialog confirm is working!"); 
+      dialogConfirm.show("Dialog confirm is working!", function(){alert(dialogConfirm.value)}); 
   }
   var openPrompt= function(){
    dialogPrompt.show("Dialog prompt is working!"); 
