@@ -50,6 +50,36 @@
   }
 
 
+  var dialogPrompt= {
+    value: null,
+    yesClicked: function(){
+      dialogPrompt.value = $(".fadingBox .dialogBox .input").val();
+      dialogPrompt.hide();
+      alert(dialogPrompt.value);
+    },
+    noClicked: function(){
+ //     dialogPrompt.value = false;
+      dialogPrompt.hide();
+    },
+    show:function(msg){
+      var mu = "";
+       mu += "<div class='fadingBox'>"
+         mu += "<div class='dialogBox'>"
+           mu += "<div class='message'>" + msg + "</div>";
+           mu += "<input class='input'>";
+           mu += "<a href='javascript:dialogPrompt.yesClicked()' class='okButton'> OK </a>";
+           mu += "<a href='javascript:dialogPrompt.noClicked()' class='cancelButton'> Cancel </a>";
+         mu += "</div>";
+       mu += "</div>";
+       document.body.innerHTML += mu;
+    },
+    hide: function(){
+      $(".fadingBox").remove();
+    },
+    id: null
+  }
+
+
   var openAlert = function(){
    dialogAlert.show("Dialog Alert is working!"); 
   } 
@@ -57,7 +87,7 @@
    dialogConfirm.show("Dialog confirm is working!"); 
   }
   var openPrompt= function(){
-   dialogPrompt.show("Dialog Alert is working!"); 
+   dialogPrompt.show("Dialog prompt is working!"); 
   }
   </script>
   <style>
