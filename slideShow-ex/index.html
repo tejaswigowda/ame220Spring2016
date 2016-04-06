@@ -77,8 +77,8 @@ var goPrev = function(){
     $("#slide" + next).stop().fadeIn('slow');
   }
   else{
-    $("#slide" + currentSlide).removeClass("atCenter").addClass("atRight")
-    $("#slide" + next).stop().removeClass("atLeft").addClass("atCenter")
+    $("#slide" + currentSlide).removeClass("atCenter atLeft").addClass("atRight")
+    $("#slide" + next).stop().removeClass("atLeft atRight").addClass("atCenter")
   }
   currentSlide = next;
 }
@@ -95,8 +95,8 @@ var goNext = function(){
     $("#slide" + next).stop().fadeIn('slow');
   }
   else{
-    $("#slide" + currentSlide).removeClass("atCenter").addClass("atLeft");
-    $("#slide" + next).stop().removeClass("atRight").addClass("atCenter");
+    $("#slide" + currentSlide).removeClass("atCenter atRight").addClass("atLeft");
+    $("#slide" + next).stop().removeClass("atRight atLeft").addClass("atCenter");
   }
   currentSlide = next;
 }
