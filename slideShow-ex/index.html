@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+
+<style>
+  html,body{
+    margin: 0px;
+    background-color: black;
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+  }
+  .nav{
+     position: fixed;
+     display: block;
+     bottom: 10px;
+     color: white;
+  }
+  #container{
+    width: 100%;
+    height: 100%;
+  }
+  .slide{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: black;
+    background-size: contain;
+    position: absolute;
+  }
+  #slide1{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/PipreolaWhitelyiKeulemans.jpg/179px-PipreolaWhitelyiKeulemans.jpg);
+  }
+  #slide2{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gib%C3%A3o_de_couro.jpg/225px-Gib%C3%A3o_de_couro.jpg);
+  }
+  #slide3{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Crested_myna%2C_Osaka%2C_Japan.jpg/375px-Crested_myna%2C_Osaka%2C_Japan.jpg);
+  }
+  #slide4{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Egretta_thula_at_Las_Gallinas_Wildlife_Ponds.jpg/231px-Egretta_thula_at_Las_Gallinas_Wildlife_Ponds.jpg);
+  }
+</style>
+
+<script src="jquery-1.11.3.js" type="text/javascript"></script>
+
+<script>
+var currentSlide = 1;
+var animation = "fade";
+
+var startUp = function(initSlide, type){
+  animation = type || "fade";
+  $(".slide").fadeOut(0);
+  $("#slide" + initSlide).fadeIn(0);
+  currentSlide = 1;
+
+  $("body").keydown(function(event) {
+    var keyCode = event.keyCode;
+    if(keyCode == 37){
+      goPrev();
+    }
+    else if(keyCode == 39){
+      goNext();
+    }
+  });
+}
+
+var goPrev = function(){
+  var bw = $("body").width() + "px"
+  var next = currentSlide - 1
+  if(next < 1){
+    next = 4;
+  }
+  if(animation === "fade"){
+    $("#slide" + currentSlide).stop().fadeOut('slow');
+    $("#slide" + next).stop().fadeIn('slow');
+  }
+  else{
+    $("#slide" + currentSlide).removeClass("atCenter").addClass("atRight")
+    $("#slide" + next).stop().removeClass("atLeft").addClass("atCenter")
+  }
+  currentSlide = next;
+}
+
+var goNext = function(){
+  var next = currentSlide + 1
+  if(next > 4){
+    next = 1;
+  }
+  var bw = $("body").width() + "px"
+
+  if(animation === "fade"){
+    $("#slide" + currentSlide).stop().fadeOut('slow');
+    $("#slide" + next).stop().fadeIn('slow');
+  }
+  else{
+    $("#slide" + currentSlide).removeClass("atCenter").addClass("atLeft");
+    $("#slide" + next).stop().removeClass("atRight").addClass("atCenter");
+  }
+  currentSlide = next;
+}
+
+
+</script>
+
+</head>
+
+<body onload='startUp(2)'>
+<div id='container'>
+  <div class='slide' id='slide1'> </div> 
+  <div class='slide' id='slide2'> </div> 
+  <div class='slide' id='slide3'> </div> 
+  <div class='slide' id='slide4'> </div> 
+</div>  
+<a style='left:10px' class='nav' href='javascript:goPrev()'> Prev </a>
+<a style='right:10px' class='nav' href='javascript:goNext()'> Next </a>
+
+
+</body>
+
+</html>
